@@ -20,6 +20,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li><%= link_to "상품판매 대시보드", seller_path %></li> 
           <li><%= link_to "프로필 수정하기", edit_user_registration_path %></li> 
           <li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>              
         
