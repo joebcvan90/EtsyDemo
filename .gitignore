@@ -22,7 +22,8 @@
 # Ignore files uploaded on localhost
 /public/system
 
-
+# Ignore Spring files.
+/spring/*.pid
 
 
 
