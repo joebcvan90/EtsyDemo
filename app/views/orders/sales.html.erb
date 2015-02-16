@@ -1,0 +1,30 @@
+<div class="center">
+  <h2>Your Sales History</h2>
+</div>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="center">이미지</th>
+    <th class="center">제품</th>
+    <th class="center">가격</th>
+    <th class="center">소비자 이름</th>
+    <th class="center">구매 날짜</th>
+  </tr>
+
+  <% @orders.each do |order| %>
+    <tr>
+      <td class="center"><%= image_tag order.listing.image.url(:thumb) %></td>
+      <td class="center"><%= order.listing.name %></td>
+      <td class="center"><%= number_to_currency(order.listing.price) %></td>
+      <td class="center"><%= order.buyer.name %></td>
+      <td class="center"><%= order.created_at.strftime("%Y-%m-%d %H:%M:%S UTC") %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<br>
+
+<% if user_signed_in? %>
+<%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
+<% end %>
